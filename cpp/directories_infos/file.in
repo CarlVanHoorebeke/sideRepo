@@ -1,2 +1,2 @@
-dir1 4096 123 login_x
-dir2 1024 777 root
+dir1 4096 123 login_x$
+dir2 1024 777 root$
