@@ -1,5 +1,4 @@
 #include "invalid-argument.hh"
-#include <sstream>
 
 InvalidArgumentException::InvalidArgumentException(const std::string& msg)
 {

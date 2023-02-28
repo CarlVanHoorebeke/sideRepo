@@ -1,7 +1,6 @@
 #include "game.hh"
 #include "player.hh"
 #include "invalid-argument.hh"
-#include <algorithm>
 #include <exception>
 #include <iostream>
 
