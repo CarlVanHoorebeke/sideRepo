@@ -14,7 +14,7 @@ unsigned int Person::age_get() const{
     return age_;
 }
 
-void Person::name_set(const std::string name){
+void Person::name_set(const std::string& name){
     name_ = name;
 }
 
