@@ -13,11 +13,11 @@ void replace(const std::string& input_filename,
     std::string token;
 
     if (!file_in.is_open()){
-        std::cerr << "Cannot open input file";
+        std::cerr << "Cannot open input file\n";
         return;
     }
      if (!file_out.is_open()){
-        std::cerr << "Cannot write output file";
+        std::cerr << "Cannot write output file\n";
         return;
     }
 
