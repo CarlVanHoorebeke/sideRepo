@@ -1,6 +1,6 @@
 #include "vehicle.hh"
 
-Vehicle::Vehicle(const std::string &model, int fuel)
+Vehicle::Vehicle(const std::string& model, int fuel)
     : model_(model)
     , engine_(fuel)
 {}

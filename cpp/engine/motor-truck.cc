@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-MotorTruck::MotorTruck(const std::string &model, int fuel, size_t nb_tires)
+MotorTruck::MotorTruck(const std::string& model, int fuel, size_t nb_tires)
     : Vehicle(model, fuel)
     , nb_tires_(nb_tires)
 {}

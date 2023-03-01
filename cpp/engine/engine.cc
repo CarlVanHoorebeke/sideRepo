@@ -14,7 +14,6 @@ bool Engine::start()
         std::cout << "Engine starts with " << fuel_ << " units of fuel\n";
         return true;
     }
-    fuel_--;
     return false;
 }
 void Engine::use(int consumed)

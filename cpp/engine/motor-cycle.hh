@@ -5,7 +5,7 @@
 class MotorCycle : public Vehicle
 {
 public:
-    MotorCycle(const std::string &model);
+    MotorCycle(const std::string& model);
 
     void change_tires() const override;
 };

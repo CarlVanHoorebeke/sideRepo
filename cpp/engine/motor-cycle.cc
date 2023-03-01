@@ -1,9 +1,8 @@
 #include "motor-cycle.hh"
 
 #include <iostream>
-#include <sys/types.h>
 
-MotorCycle::MotorCycle(const std::string &model)
+MotorCycle::MotorCycle(const std::string& model)
     : Vehicle(model, 20)
 {}
 

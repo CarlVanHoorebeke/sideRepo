@@ -7,7 +7,7 @@
 class Vehicle
 {
 public:
-    Vehicle(const std::string &model, int fuel);
+    Vehicle(const std::string& model, int fuel);
 
     bool start();
     void stop() const;
