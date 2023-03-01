@@ -9,6 +9,7 @@ int main()
     MotorCycle mc("Suzuki");
 
     mt.start();
+
     mt.cruise(4);
     mt.fill(2);
     mt.cruise(15);

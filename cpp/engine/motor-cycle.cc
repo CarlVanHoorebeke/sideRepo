@@ -3,10 +3,8 @@
 #include <iostream>
 #include <sys/types.h>
 
-#include "vehicle.hh"
-
 MotorCycle::MotorCycle(const std::string &model)
-    : Vehicule(model, 20)
+    : Vehicle(model, 20)
 {}
 
 void MotorCycle::change_tires() const

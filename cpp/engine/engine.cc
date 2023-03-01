@@ -31,7 +31,7 @@ void Engine::use(int consumed)
     }
 }
 
-void Engine::stop()
+void Engine::stop() const
 {
     std::cout << "Stop Engine\n";
 }

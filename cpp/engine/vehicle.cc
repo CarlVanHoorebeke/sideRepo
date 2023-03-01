@@ -1,26 +1,26 @@
 #include "vehicle.hh"
 
-Vehicule::Vehicule(const std::string &model, int fuel)
+Vehicle::Vehicle(const std::string &model, int fuel)
     : model_(model)
     , engine_(fuel)
 {}
 
-bool Vehicule::start()
+bool Vehicle::start()
 {
     return engine_.start();
 }
 
-void Vehicule::stop()
+void Vehicle::stop() const
 {
     engine_.stop();
 }
 
-void Vehicule::cruise(int fuel)
+void Vehicle::cruise(int fuel)
 {
     engine_.use(fuel);
 }
 
-void Vehicule::fill(int fuel)
+void Vehicle::fill(int fuel)
 {
     engine_.fill(fuel);
 }
