@@ -1,10 +1,12 @@
 #include "motor-cycle.hh"
-#include "vehicle.hh"
+
 #include <iostream>
 #include <sys/types.h>
 
-MotorCycle::MotorCycle(const std::string& model)
-: Vehicule(model, 20)
+#include "vehicle.hh"
+
+MotorCycle::MotorCycle(const std::string &model)
+    : Vehicule(model, 20)
 {}
 
 void MotorCycle::change_tires() const
