@@ -6,7 +6,7 @@ void merge_sort(iterator_type begin, iterator_type end)
     {
         iterator_type middle = begin + (end - begin) / 2;
         merge_sort(begin, middle);
-        merge_sort(middle, begin);
+        merge_sort(middle, end);
         std::inplace_merge(begin, middle, end);
     }
 }
