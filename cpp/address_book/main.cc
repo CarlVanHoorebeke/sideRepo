@@ -30,7 +30,7 @@ int main()
     std::cout << b;
 
     std::cout << "Erasing the second Cyril Berger.\n";
-    b.remove("Cyril Berger", 1);
+    b.remove_all("Cyril Berger");
 
     std::cout << b;
 

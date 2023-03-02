@@ -4,9 +4,9 @@ ContactDetails::ContactDetails(const std::string& telephone_number,
                                const std::string& personal_email)
 {
     if (telephone_number.find_first_not_of("0123456789") != std::string::npos)
-        throw std::invalid_argument("Incorrect number");
+        throw std::invalid_argument("Incorrect number.");
     else if (personal_email.find_first_of("@") == std::string::npos)
-        throw std::invalid_argument("Incorrect email");
+        throw std::invalid_argument("Incorrect email.");
     else
     {
         number = telephone_number;
