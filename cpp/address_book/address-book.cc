@@ -1,5 +1,4 @@
 #include "address-book.hh"
-#include <stdexcept>
 
 bool AddressBook::add(const std::string& full_name, const std::string& email,
                       const std::string& number)
@@ -11,9 +10,8 @@ bool AddressBook::add(const std::string& full_name, const std::string& email,
         book_.insert({ full_name, contact });
         return true;
     } catch (std::invalid_argument& e) {
-        std::cerr << e.what();
+        return false;
     }
-    return false;
 }
 
 std::vector<ContactDetails> AddressBook::find(const std::string& full_name)
@@ -37,7 +35,7 @@ bool AddressBook::remove(const std::string& full_name, std::size_t index)
 
     size_t num = 0;
     auto pos = book_.equal_range(full_name);
-    for (auto i = pos.first; i != pos.second; ++i)
+    for (auto i = pos.first; i != pos.second; i++)
     {
         if (num == index)
         {
@@ -46,13 +44,13 @@ bool AddressBook::remove(const std::string& full_name, std::size_t index)
         }
         num++;
     }
-    return num;
+    return false;
 }
 
 void AddressBook::remove_all(const std::string& full_name)
 {
-    for (size_t i = 0; i <= book_.count(full_name); i++)
-        remove(full_name, 0);
+    auto pos = book_.equal_range(full_name);
+    book_.erase(pos.first, pos.second);
 }
 
 std::ostream& operator<<(std::ostream& os, const AddressBook& b)
