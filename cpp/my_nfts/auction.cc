@@ -40,7 +40,6 @@ Auction::~Auction()
 {
     if (highest_bidder_ == &organizer_)
     {
-        organizer_.add_money(highest_bid_);
         organizer_.add_nft(std::move(nft_));
     }
     else {

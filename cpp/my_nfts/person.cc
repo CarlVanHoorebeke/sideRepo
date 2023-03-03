@@ -61,10 +61,12 @@ std::string Person::get_name() const
 std::ostream& operator<<(std::ostream& os, const Person& p)
 {
     os << "Name: " << p.get_name() << "\n"
-       << "Money: " << p.get_money() << "\n";
+       << "Money: " << p.get_money() << "\n"
+       << "NFTs:";
     for (auto e : p.enumerate_nfts())
     {
-        os << "NFTs: " << e << "\n";
+        os << " " << e;
     }
+    os << "\n";
     return os;
 }
