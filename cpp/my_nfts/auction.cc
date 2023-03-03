@@ -4,7 +4,8 @@
 
 Auction::Auction(Person& organizer, NFT nft, uint initial_bid)
 :organizer_(organizer)
-, highest_bid_(initial_bid)
+,highest_bidder_(&organizer)
+,highest_bid_(initial_bid)
 {
     if (nft == nullptr)
         throw std::invalid_argument("NFT is empty");
@@ -16,7 +17,7 @@ bool Auction::bid(Person& person, uint money)
 {
     if (money > highest_bid_ && money <= person.get_money())
     {
-        highest_bidder_->add_money(highest_bid_);
+        highest_bidder_->add_money(money);
         person.remove_money(money);
         highest_bid_= money;
         highest_bidder_ = &person;
@@ -37,7 +38,7 @@ uint Auction::get_highest_bid() const
 
 Auction::~Auction()
 {
-    if (highest_bidder_ == nullptr)
+    if (highest_bidder_ == &organizer_)
     {
         organizer_.add_money(highest_bid_);
         organizer_.add_nft(std::move(nft_));

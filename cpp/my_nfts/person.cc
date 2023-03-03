@@ -11,7 +11,7 @@ std::vector<std::string> Person::enumerate_nfts() const
     std::vector<std::string> vect;
     for (auto e = nfts_.begin(); e != nfts_.end(); e++)
     {
-        vect.push_back(*(e->get()));
+        vect.push_back(**e);
     }
     return vect;
 }
