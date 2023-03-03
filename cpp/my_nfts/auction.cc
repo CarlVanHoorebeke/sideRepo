@@ -17,7 +17,7 @@ bool Auction::bid(Person& person, uint money)
     if (money > highest_bid_ && money <= person.get_money())
     {
         if (highest_bidder_ != &organizer_)
-            highest_bidder_->add_money(money);
+            highest_bidder_->add_money(highest_bid_);
         person.remove_money(money);
         highest_bid_= money;
         highest_bidder_ = &person;
