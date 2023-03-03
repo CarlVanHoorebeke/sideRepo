@@ -8,7 +8,7 @@
 
 inline NFT create_nft(const std::string& name)
 {
-    return make_unique<std::string>(name);
+    return std::make_unique<std::string>(name);
 }
 
 inline NFT create_empty_nft()

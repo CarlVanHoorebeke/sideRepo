@@ -18,7 +18,7 @@ std::vector<std::string> Person::enumerate_nfts() const
 
 void Person::add_nft(NFT nft)
 {
-    nfts_.push_back(nft);
+    nfts_.push_back(std::move(nft));
 }
 
 NFT Person::remove_nft(const std::string& name)
