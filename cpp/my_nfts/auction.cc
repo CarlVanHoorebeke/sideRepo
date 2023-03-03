@@ -1,5 +1,4 @@
 #include "auction.hh"
-#include <stdexcept>
 #include "nft.hh"
 
 Auction::Auction(Person& organizer, NFT nft, uint initial_bid)
@@ -9,7 +8,7 @@ Auction::Auction(Person& organizer, NFT nft, uint initial_bid)
 {
     if (nft == nullptr)
         throw std::invalid_argument("NFT is empty");
-    organizer.remove_nft(*nft);
+    organizer_.remove_nft(*nft);
     nft_ = std::move(nft);
 }
 
@@ -17,7 +16,8 @@ bool Auction::bid(Person& person, uint money)
 {
     if (money > highest_bid_ && money <= person.get_money())
     {
-        highest_bidder_->add_money(money);
+        if (highest_bidder_ != &organizer_)
+            highest_bidder_->add_money(money);
         person.remove_money(money);
         highest_bid_= money;
         highest_bidder_ = &person;

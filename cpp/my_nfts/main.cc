@@ -11,23 +11,23 @@ int main(void)
     p1.add_nft(create_nft("Singe"));
 
     std::cout << p1;
-    std::cout << p2;
+    std::cout << p2 << "\n";
 
     p2.add_nft(p1.remove_nft("Singe"));
 
     std::cout << p1;
-    std::cout << p2;
+    std::cout << p2 << "\n";
 
     auto p3 = Person("Marie", 20);
     std::cout << p1;
     std::cout << p2;
-    std::cout << p3;
+    std::cout << p3 << "\n";
 
     {
         Auction auction(p2, p2.remove_nft("Singe"), 10);
         std::cout << p1;
         std::cout << p2;
-        std::cout << p3;
+        std::cout << p3 << "\n";
 
         auction.bid(p1, 20);
     }
