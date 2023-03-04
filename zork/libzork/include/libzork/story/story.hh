@@ -25,6 +25,8 @@ namespace story
         void set_current(const Node* node);
 
     private:
+        std::string title_;
+        fs::path scripts_path_;
         std::vector<std::unique_ptr<Node>> nodes_;
         std::unique_ptr<Store> store_;
     };

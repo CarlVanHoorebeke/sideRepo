@@ -33,31 +33,41 @@ namespace story
     {
         if (index >= choices_.size())
             return nullptr;
-        int i = 0;
+        const Node* tmp;
+        size_t i = 0;
         for (auto e = choices_.begin(); e != choices_.end(); e++)
         {
             if (i == index)
-                return e.base()->get_target();
+            {
+                while ((*e).get_target() != nullptr)
+                {
+                    tmp = (*e).get_target();
+                }
+                return tmp;
+            }
             i++;
         }
         return nullptr;
     }
 
     std::vector<std::string>
-    Node::list_choices(bool check_conditions = true) const
+    Node::list_choices(bool check_conditions) const
     {
         std::vector<std::string> choice_texts;
         for (auto choice : choices_)
         {
-            choice_texts.push_back(choice.get_text());
+            if (check_conditions)
+                choice_texts.push_back(choice.get_text());
         }
         return choice_texts;
     }
 
     void Node::add_choice(const Node* other, const std::string& text,
-                          const std::vector<Condition>& conditions = {},
-                          const std::vector<Action>& operations = {})
+                          const std::vector<Condition>& conditions,
+                          const std::vector<Action>& operations)
     {
+        (void) conditions;
+        (void) operations;
         choices_.push_back(Choice(other, text));
     }
 

@@ -1,0 +1,15 @@
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/CMakeFiles/libzork.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/CMakeFiles/rebuild_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/src/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/src/CMakeFiles/rebuild_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/src/libzork/story/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/src/libzork/story/CMakeFiles/rebuild_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/zorkxplorer/CMakeFiles/zorkxplorer.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/zorkxplorer/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/zorkxplorer/CMakeFiles/rebuild_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/zorkxplorer/src/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/zorkxplorer/src/CMakeFiles/rebuild_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/tests/CMakeFiles/testsuite.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/tests/CMakeFiles/edit_cache.dir
+/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build/tests/CMakeFiles/rebuild_cache.dir

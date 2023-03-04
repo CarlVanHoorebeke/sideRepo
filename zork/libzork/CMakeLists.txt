@@ -1,23 +1,24 @@
-cmake_minimum_required(VERSION "3.22.1")
-project("libzork")
+cmake_minimum_required(VERSION 3.21.2)
 
+project(libzork)
 
+add_library(libzork SHARED)
 
+set_target_properties(libzork PROPERTIES OUTPUT_NAME zork)
+set_target_properties(libzork PROPERTIES
+    CXX_STANDARD 20
+    CXX_EXTENSIONS OFF
+)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
+target_compile_options(libzork PRIVATE -Wall -Wextra -Werror -pedantic)
 
+target_include_directories(libzork PUBLIC "include/")
 
+find_library(YAML-CPP NAMES libyaml-cpp yaml-cpp REQUIRED)
 
+target_link_libraries(libzork PRIVATE ${YAML-CPP})
 
-add_subdirectory(include)
+# subdirs(src) TODO add sources from src
 add_subdirectory(src)
-#add_subdirectory(zorkxplorer)
-
-
-# option(BUILD_EXAMPLES "Whether or not to build examples" ON)
-
-# if (BUILD_EXAMPLES)
-#     message(STATUS "Building examples...")
-#     add_subdirectory(example)
-#endif()
+add_subdirectory(zorkxplorer)
+add_subdirectory(tests)
