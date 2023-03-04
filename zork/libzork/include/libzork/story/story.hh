@@ -23,6 +23,7 @@ namespace story
         const std::string& get_title() const;
         const Node* get_current() const;
         void set_current(const Node* node);
+
     private:
         std::vector<std::unique_ptr<Node>> nodes_;
         std::unique_ptr<Store> store_;

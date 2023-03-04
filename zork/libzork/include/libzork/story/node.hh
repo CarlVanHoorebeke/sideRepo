@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
+#include "libzork/story/choice.hh"
 #include "libzork/variables/action.hh"
 #include "libzork/variables/condition.hh"
-#include "libzork/story/choice.hh"
 
 namespace fs = std::filesystem;
 
@@ -28,9 +28,9 @@ namespace story
                         const std::vector<Action>& operations = {});
 
     private:
+        fs::path script_path_;
         std::string name_;
         std::string text_;
-        fs::path script_path;
         std::vector<Choice> choices_;
     };
 } // namespace story
