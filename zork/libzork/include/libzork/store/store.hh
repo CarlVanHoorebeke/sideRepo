@@ -18,4 +18,7 @@ public:
     virtual bool has_variable(const std::string& name) const;
     virtual int get_variable(const std::string& name) const;
     virtual void set_variable(const std::string& name, int value);
+
+private:
+    const story::Node* node_;
 };
