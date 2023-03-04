@@ -1,1 +1,0 @@
-/nix/store/1y8i61anhs9hh1g5x3zw2fvdbivwixzg-gcc-wrapper-11.3.0/bin/g++ CMakeFiles/zorkxplorer.dir/src/main.cc.o CMakeFiles/zorkxplorer.dir/src/options.cc.o -o zorkxplorer  -Wl,-rpath,/home/noctis/Desktop/cpp/sideRepo/zork/libzork/build ../libzork.so 

@@ -4,35 +4,42 @@
 
 namespace story
 {
-    explicit Story::Story(const fs::path& path)
+    Story::Story(const fs::path& path)
+    : current_node_(nodes_.at(0).get())
     {
+        
+
         YAML::Node config = YAML::LoadFile(path);
 
         title_ = config["title"].as<std::string>();
         scripts_path_ = config["scripts-path"].as<std::string>();
         
-        std::map<std::string, Node> map;
+        std::map<std::string, Node*> map;
 
-        auto key = config["story"];
+        auto stories = config["story"];
 
-        for (const auto& el : key)
+        for (const auto& el_stories : stories)
         {
-            auto tmp = el.first.as<std::string>();
+            // auto el_stories_lhs = el_stories.first.as<std::string>();
 
-            Node n(key[tmp]["name"].as<std::string>(), key[tmp]["script"].as<fs::path>());
+            Node n(stories["name"].as<std::string>(),
+                   stories["script"].as<std::string>());
+            map.insert({stories["name"].as<std::string>(), &n});
+        }
 
-            for (const auto& e : el)
-            {
-                Choice c()
-            }
-            n.add_choice
+        auto choices = stories["choices"];
 
-            map.insert({key[tmp]["name"].as<std::string>(), n})
+        for (const auto& el_stories_choices : choices)
+        {
+            // auto el_stories_lhs = el_stories.first.as<std::string>();
+            auto n = map.find(choices["target"].as<std::string>())->second;
+            n->add_choice(map.find(choices["target"].as<std::string>())->second,
+                          choices["text"].as<std::string>());
+        }
 
-
-
-            data.jobs.push_back(Job(job, stage.as<std::string>()));
-            auto command = config[job]["script"];
+        for (auto i = map.begin(); i != map.end(); i++)
+        {
+            nodes_.push_back(std::make_unique<Node>(*i->second));
         }
 
     }
@@ -42,8 +49,40 @@ namespace story
         return title_;
     }
 
-    const Node* Story::get_current() const;
-    void Story::set_current(const Node* node);
+    const Node* Story::get_current() const
+    {
+        return current_node_;
+    }
+    void Story::set_current(const Node* node)
+    {
+        current_node_ = node;
+        //std::unique_ptr<story::Node> new_node = std::move(nodes_.at(0));
+        //nodes_.at(0).reset(new story::Node(*node));
+        //nodes_.at(0).reset(node);
+    }
 
+    std::ostream& operator<<(std::ostream& os, const Story& story)
+    {
+        os << "diagraph story {\n";
+        for (const auto& i : story.nodes_)
+        {
+            os << "\t\""<< i.get()->get_name() << "\" -> ";
+            if (i.get()->list_choices().size() == 1)
+            {
+                os << "\"" << i.get()->list_choices().at(0) << "\";";
+            }
+            else
+            {
+                os << "{\"" << i.get()->list_choices().at(0) << "\"";
+                for (auto j : i.get()->list_choices())
+                {
+                    os << " \"" << j << "\""; 
+                }
+                os << "};";
+            }
+        }
+        os << "}\n";
+        return os;
+    }
 
 }

@@ -24,12 +24,13 @@ namespace story
         const Node* get_current() const;
         void set_current(const Node* node);
 
+        friend std::ostream& operator<<(std::ostream& os, const Story& story);
     private:
         std::string title_;
         fs::path scripts_path_;
+        const Node* current_node_;
         std::vector<std::unique_ptr<Node>> nodes_;
         std::unique_ptr<Store> store_;
     };
 
-    std::ostream& operator<<(std::ostream& os, const Story& story);
 } // namespace story
